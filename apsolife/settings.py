@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'compressor',
+    'cloudinary',
 
     'core',
 ]
@@ -171,3 +172,12 @@ STORAGES = {
     },
 }
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+# Cloudingary - Djanog integration
+cloudinary.config(
+	cloud_name = "dfuupz7rh",
+	api_key = "747535543642996",
+	api_secret = "b-CwIGz8S-VqALmYkuOZCM1XwGM",
+)
