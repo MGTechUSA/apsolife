@@ -23,7 +23,7 @@ body{
 }
 </style>
     <div class="home-container full-height flex items-center gap-8 justify-center">
-        <div class="flex flex-col items-start">
+        <div class="flex flex-col items-start max-w-[500px]">
             <h1 class="text-4xl leading-normal inline bg-gradient-to-r from-brand-light to-brand-hv bg-clip-text font-display tracking-tight text-transparent">
                 Photography, Videography & <br> Social Media Strategies
             </h1>
@@ -42,14 +42,14 @@ body{
                 </a>
             </div>
         </div>
-        <img src="{% static "images/logo.png" %}" alt="" class="w-2/5 hidden lg:flex">
+        <img src="{% static "images/logo.png" %}" alt="" class="w-2/6 hidden lg:flex">
 
     </div>
 
     {% for service in service_list %}
     <!-- Photography -->
     <div class="home justify-start text-start home-container flex gap-16 items-center">
-        <div class="border border-gray-500 flex flex-col p-4 gap-4 max-w-[50%] rounded-lg">
+        <div class="border border-gray-500 flex flex-col p-4 gap-4 lg:max-w-[50%] rounded-lg">
             <img src="{{service.image.url}}" alt="" class="rounded-lg">
         </div>
             

@@ -37,7 +37,7 @@ input, .regular-input {
 }
 
 .home-container {
-  @apply px-8 lg:px-16 py-8 lg:py-16 flex flex-col lg:flex-row;
+  @apply px-8 lg:px-16 py-8 lg:py-16 flex flex-col sm:flex-row max-w-[1600px] m-auto;
   /* @apply &_img:max-h-[60vh]; */
 
 }
