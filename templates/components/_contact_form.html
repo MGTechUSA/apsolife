@@ -1,0 +1,98 @@
+{% block head %} 
+    {% load static %}
+    <!-- Include Leaflet CSS and JavaScript -->
+    <link rel="stylesheet" href="{% static "leaflet/leaflet.css" %}" />
+    <script src="{% static "leaflet/leaflet.js" %}"></script>
+
+{% endblock head %}
+
+<div class="mycontainer group" id="contact">
+    <!-- Title -->
+    <div class="w-full mb-4 sm:mb-8">
+      <h1 class="fancy-headline !inline-block relative text-3xl mb-2 font-semibold text-brand">Contact</h1>
+        <p class="text-gray-300">If you have any questions or inquiries, feel free to reach out to us.</p>
+    </div>
+
+    <div class="flex flex-col justify-between items-center lg:items-start lg:flex-row gap-8">
+
+        <form method="post" class="flex flex-col gap-4 items-center sm:max-w-lg">
+            {% csrf_token %}
+            <!-- Full name -->
+            <div class="w-full">
+                <label for="full-name" class="block mb-2 text-sm font-medium text-gray-200">Full name</label>
+                {{form.full_name}}
+            </div>
+            <!-- Email -->
+            <div class="w-full">
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-200">Email</label>
+                {{form.email}}
+            </div>
+            <!-- Email -->
+            <div class="w-full">
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-200">Phone</label>
+            {{form.phone}}
+            </div>
+            <!-- Select Catagory -->
+            <div class="w-full" id="category-field" hidden>
+                <label for="categories" class="block mb-2 text-sm font-medium text-gray-200">Which category best fits your project?</label>
+                {{form.offer}}
+            </div>
+            
+            <!-- Describe Brief -->
+            <div class="w-full">
+                <label for="brief" class="block mb-2 text-sm font-medium text-gray-200">What are you looking to get done?</label>
+                {{form.message}}
+            </div>
+            <!-- Describe Brief -->
+            <div class="w-full [&_option]:bg-black">
+                <label for="brief" class="block mb-2 text-sm font-medium text-gray-200">How should we contact you?</label>
+                {{form.contact_method}}
+            </div>
+
+            <button class="btn-primary self-end">Submit</button>
+            
+        </form>
+    
+        <div class="flex flex-col gap-6 w-full lg:w-[50%] lg:pl-5 lg:border-l border-brand">
+            <!-- Location -->
+            {% comment %} <div class="text-slate-700">
+                <i class="fa-solid fa-location-dot"></i> <span class="font-semibold ml-2">Location</span>
+            </div> {% endcomment %}
+            <!-- MAP -->
+            {% comment %} <div id="map" class="rounded-lg h-80"></div> {% endcomment %}
+
+            <!-- Phone -->
+            <div class="text-gray-300">
+                <i class="fa-solid fa-phone"></i> <span class="font-semibold ml-2">Phone no</span>
+                <p>(817) 897-6332</p>
+            </div>
+            <!-- Email -->
+            <div class="text-gray-300">
+                <i class="fa-solid fa-envelope"></i> <span class="font-semibold ml-2">Email</span>
+                <p>info@apsolife.com.</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>       
+        LatLng = [32.91315865863555, -97.24984141246158]
+
+        var map = L.map('map').setView([32.91315865863555, -97.24984141246158], 10);
+
+        var marker = L.marker(LatLng).addTo(map);
+        marker.bindPopup("Master Gaming Technology").openPopup();
+
+        map.fitBounds([marker.getLatLng()])
+        map.setView(map.getCenter(), 10);  // Center the map
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+    </script>
+
+</div>
+  

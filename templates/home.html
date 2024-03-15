@@ -1,0 +1,71 @@
+{% extends "_base.html" %}
+
+{% comment %} {% load custom_filters %} {% endcomment %}
+
+{% block head %} 
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock head %}
+
+
+{% block main %}
+<style>
+
+body{
+    background-color: black;
+    color: white;
+}
+.mycontainer{
+    max-width: 1500px;
+    margin: auto;
+    flex-direction: column;
+}
+</style>
+    <div class="home-container full-height flex items-center gap-8 justify-center">
+        <div class="flex flex-col items-start">
+            <h1 class="text-4xl leading-normal inline bg-gradient-to-r from-brand-light to-brand-hv bg-clip-text font-display tracking-tight text-transparent">
+                Photography, Videography & <br> Social Media Strategies
+            </h1>
+            <p class="my-4 text-gray-400">
+                Our website is dedicated to empowering new and small businesses, with a special focus on Spanish-speaking ventures in the United States. We believe in fostering growth and opportunity for all, regardless of language or background. Explore our offerings and join us in building a vibrant and inclusive entrepreneurial community.
+            </p>
+            <div class="flex gap-2 pt-4">
+                <a href="https://www.instagram.com/apsolife/" class="text-3xl hover:bg-gray-800 border border-gray-700 aspect-square w-16 rounded-full flex justify-center items-center">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="/" class="text-3xl hover:bg-gray-800 border border-gray-700 aspect-square w-16 rounded-full flex justify-center items-center">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="/" class="text-3xl hover:bg-gray-800 border border-gray-700 aspect-square w-16 rounded-full flex justify-center items-center">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+            </div>
+        </div>
+        <img src="{% static "images/logo.png" %}" alt="" class="w-2/5 hidden lg:flex">
+
+    </div>
+
+    {% for service in service_list %}
+    <!-- Photography -->
+    <div class="home justify-start text-start home-container flex gap-16 items-center">
+        <div class="border border-gray-500 flex flex-col p-4 gap-4 max-w-[50%] rounded-lg">
+            <img src="{{service.image.url}}" alt="" class="rounded-lg">
+        </div>
+            
+        <div class="flex flex-col gap-4 items-start">
+            <h1 class="text-4xl flex items-center gap-4 leading-normal bg-gradient-to-r from-brand-light to-brand bg-clip-text font-display text-transparent">
+                {{service.name}}
+            </h1>
+            <p class="flex-1 text-gray-300">
+                {{service.description}}
+            </p>
+            <a href="{% url "offer" service_id=service.id%}" class="group border rounded-md p-3 inline-block border-gray-500 hover:bg-gray-700/20">
+                Checkout Offers
+                <i class="ml-0 text-sm text-gray-500 group-hover:ml-2 group-hover:text-white fa-solid fa-arrow-right duration-500"></i>
+            </a>
+        </div>
+    </div>
+    {% endfor %} 
+
+{% endblock main %}

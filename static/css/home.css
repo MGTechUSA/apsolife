@@ -1,0 +1,21 @@
+
+nav {
+    border: none;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.nav-links a {
+    color: white;
+}
+
+.nav-links a:hover{
+    color: white;
+    /* background-color: rgba(255, 247, 199, 0.281); */
+}
+
+.full-height {
+    height: var(--full-height);
+}

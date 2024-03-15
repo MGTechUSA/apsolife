@@ -1,0 +1,43 @@
+@tailwind base; 
+@tailwind components; 
+@tailwind utilities;
+
+/* @layer components { */
+/* } */
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+.btn-primary {
+  @apply py-2 px-4 bg-brand text-white font-semibold rounded-lg shadow-md hover:bg-brand-hv focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+}
+
+input, .regular-input {
+  @apply !w-full p-2.5 rounded-md bg-transparent border border-gray-400 focus:outline-blue-500 focus:border-blue-500;
+}
+
+
+.nav-link {
+  @apply px-5 py-2.5 rounded-md hover:bg-yellow-500/40 transition-all duration-200 ease-in-out;
+}
+
+
+/* .fancy-headline {
+  @apply before:w-2/4 before:h-[1px] before:bg-brand before:absolute before:bottom-0 before:left-0;
+  @apply before:transition-all before:duration-300 before:ease-in-out hover:before:translate-x-full;
+  @apply group-hover/container:before:translate-x-full;
+} */
+
+.mycontainer {
+  @apply px-8 lg:px-16 py-8 lg:py-16;
+}
+
+.home-container {
+  @apply px-8 lg:px-16 py-8 lg:py-16 flex flex-col lg:flex-row;
+  /* @apply &_img:max-h-[60vh]; */
+
+}

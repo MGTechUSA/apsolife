@@ -1,0 +1,11 @@
+{% load static %}
+{% comment %} {% load custom_filters %} {% endcomment %}
+<a href="{% url "services" service_id=service.id %}" class="group/card flex flex-col w-full lg:w-[30%] gap-5 p-4 rounded-xl border hover:bg-brand-light hover:shadow-xl duration-500">
+    {% if service.image %}
+        <img src="{{ service.image.url }}" alt="image" class="w-full !aspect-[4/3] rounded-xl">
+    {% else %}
+        <img src="{% static "images/default-image.jpg" %}" alt="image" class="w-full !aspect-[4/3] rounded-xl">
+    {% endif %}
+    <span class="text-2xl text-slate-700 font-medium group-hover/card:text-white">{{service.name}}</span>
+    <span href="" class=" group-hover/card:text-white">Learn More <i class="ml-0 text-red-400 group-hover/card:ml-2 group-hover/card:text-white fa-solid fa-arrow-right duration-500"></i></span>
+</a>
