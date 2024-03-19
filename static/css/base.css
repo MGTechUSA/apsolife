@@ -5,7 +5,26 @@
     --full-height: calc(100vh - var(--nav-height));
 
     /* Colors */
+    --color-primary: #eb1d1d;
+    --color-primary-hover: #ff3a3a;
+    --color-primary-dark: #427C00;
+    --color-primary-light: #d6ffa8;
+    --color-primary-light-hv: #baf379;
+
+    --color-dark: #142500;
+    --color-dark-hover: #1b3101;
+    --color-light: #515151;
+
+    --color-danger: #dc3545;
     --grey: #6F6F6F;
+    --light-grey: #9A9A9A;
+    
+    /* Border Radius */
+    --radius-full: 100rem;
+    --radius-xl: 1rem;
+    --radius-l: 0.75rem;
+    --radius-m: 0.5rem;
+    --radius-sm: 0.35rem;
 }
 
 *{
@@ -25,11 +44,44 @@ NAVBAR
 */
 nav{
     height: var(--nav-height);
+    /* position: relative;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--dark);
+    border-bottom: 1px solid rgba(230, 230, 230, 0.5);
+    padding: 0.75em 2em; */
 }
 
-.hamburger span{
-    background-color: rgba(255, 255, 255, 0.5);
+
+.nav-links {
+    /* display: flex; */
+    /* justify-content: space-between; */
+    /* list-style-type: none; */
+    /* gap: 0.5em; */
+    /* z-index: 999; */
 }
+
+.nav-links a {
+    /* display: block; */
+    /* color: var(--grey); */
+    /* color: #35610270; */
+    /* font-size: 1rem; */
+    /* padding: 0.5em 1em; */
+    /* text-decoration: none; */
+    /* border-radius: var(--radius-sm); */
+    /* transition: all 0.2s ease; */
+
+}
+
+.nav-links a:hover {
+    /* color: #515151; */
+    /* background-color: rgba(255, 199, 199, 0.281); */
+
+}
+
 .hamburger{
     position: absolute;
     top: 1rem;
@@ -45,7 +97,7 @@ nav{
 .hamburger span{
     height: 3px;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 
@@ -55,8 +107,54 @@ MAIN
 */
 
 .main {
+    /* padding: 0rem 4rem; */
     /* height: var(--full-height); */
+    display: flex;
+    flex-direction: column;
+
+    min-height: --full-height;
 }
+
+/* Messages */
+.messages {
+    position:absolute;
+    display: flex; flex-direction: column;
+    top: 0px;
+    width:100%;
+    gap: 4px;
+    padding: 4px;
+    z-index: 99;
+}
+
+.message{
+    border-radius: var(--radius-secondary);
+    display: flex;
+    justify-content: space-between;
+}
+
+.message-text{
+    padding: 1em;
+    color: var(--dark);
+}
+
+.msg-destroy-btn {
+    padding: 0.5em 1em;
+    font-size: 1rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+    outline: none;
+    color: var(--dark);
+}
+    .msg-destroy-btn:hover{ 
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+.messages .error   { background-color: rgba(255, 112, 112, 0.9); }
+.messages .info    { background-color: rgba(134, 207, 255, 0.9); }
+.messages .success { background-color: rgba(90, 255, 145, 0.9); }
+
+
+
 
 
 @media (min-width: 1500px) {
@@ -72,38 +170,34 @@ MAIN
     /* .main { padding: 0rem 2rem;} */
 
     nav {
-        flex-direction: column;
-        justify-content: flex-start;
-        gap: 0px;
+        /* flex-direction: column; */
+        /* justify-content: flex-start; */
+        /* gap: 0px; */
     }
     nav ul {
-        flex-direction: column;
-        justify-content: flex-start;
-        gap: 0px;
-        background-color: rgb(0, 60, 255);
-
+        /* flex-direction: column; */
+        /* justify-content: flex-start; */
+        /* gap: 0px; */
     }
 
     .hamburger {
         display: flex;
     }
     .nav-links{
-        display: none;
-        gap: 0px;
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
+        /* display: none; */
+        /* gap: 0px; */
+        /* flex-direction: column; */
+        /* width: 100%; */
+        /* text-align: center; */
     }
     .nav-links li a{
-        padding: 1em;
-        border-radius: 0;
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        color: rgb(19, 19, 22);
-        /* background-color: rgba(186, 202, 255, 0.5); */
-        background-color: rgba(255, 255, 255);
-        border-bottom: 1px solid rgb(224, 224, 224);
+        /* padding: 1em; */
+        /* border-radius: 0; */
+        /* display: flex; */
+        /* width: 100%; */
+        /* justify-content: center; */
+        /* color: rgb(19, 19, 22); */
+        /* background-color: rgba(255, 186, 186, 0.5); */
     }
 
     .nav-links.active {
@@ -111,6 +205,10 @@ MAIN
         background-color: var(--mid);
         border-top: 1px solid var(--color-light);
     }
+    .nav-links:first-child {
+        /* margin-top: 4rem; */
+    }
+
 }
 
 

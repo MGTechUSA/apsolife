@@ -52,7 +52,7 @@
 </script>
 
 {% comment %} <section class=" bg-gray-900 -mt-[20vh] rounded-xl"> {% endcomment %}
-<section class="bg bg-red-50 -mt-[15vh] border-slate-600 rounded-xl border">
+<section class="bg bg-black sm:-mt-[20vh] border-slate-300 rounded-xl border">
   <div
     class="mx-auto max-w-[1340px] px-4 py-8 sm:px-6 lg:me-0 lg:py14 lg:pe-0 lg:ps-8 xl:py-22 overflow-hidden"
   >
@@ -60,20 +60,20 @@
       class="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-center lg:gap-16"
     >
       <div class="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
-        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        <h2 class="text-3xl font-bold tracking-tight text-slate-300 sm:text-4xl">
           Don't just take our word for it...
         </h2>
 
-        <p class="mt-4 text-gray-700">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas
-          veritatis illo placeat harum porro optio fugit a culpa sunt id!
+        <p class="mt-4 text-gray-300">
+          Check out what our satisfied customers have to say!
+
         </p>
 
         <div class="hidden lg:mt-8 lg:flex lg:gap-4">
           <button
             aria-label="Previous slide"
             id="keen-slider-previous-desktop"
-            class="rounded-full border border-rose-600 p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+            class="rounded-full border border-brand p-3 text-brand transition hover:bg-brand hover:text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +94,7 @@
           <button
             aria-label="Next slide"
             id="keen-slider-next-desktop"
-            class="rounded-full border border-rose-600 p-3 text-rose-600 transition hover:bg-rose-600 hover:text-white"
+            class="rounded-full border border-brand p-3 text-brand transition hover:bg-brand hover:text-white"
           >
             <svg
               class="h-5 w-5 rtl:rotate-180"
@@ -120,7 +120,7 @@
           
           <div class="keen-slider__slide">
             <blockquote
-              class="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12"
+              class="flex h-full flex-col justify-between bg-brand/20 p-6 shadow-sm sm:p-8 lg:p-12"
             >
               <div>
                 <div class="flex gap-0.5 text-green-500">
@@ -181,17 +181,17 @@
                 </div>
 
                 <div class="mt-4">
-                  <p class="text-2xl font-bold text-rose-600 sm:text-3xl">
+                  <p class="text-2xl font-bold text-brand sm:text-3xl">
                     {{testimonial.title}}
                   </p>
 
-                  <p class="mt-4 leading-relaxed text-gray-700">
+                  <p class="mt-4 leading-relaxed text-gray-300">
                     {{testimonial.message}}
                   </p>
                 </div>
               </div>
 
-              <footer class="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
+              <footer class="mt-4 text-sm font-medium text-gray-300 sm:mt-6">
                 &mdash; {{testimonial.full_name}}
               </footer>
             </blockquote>

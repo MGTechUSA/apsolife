@@ -25,32 +25,20 @@
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav class="relative flex justify-between items-center px-8 top-0 left-0 border-b border-border-light">
+    <nav class="relative flex w-full justify-between items-center px-8 top-0 left-0 border-b border-border-light">
         {% block nav_logo %}
-        <a href="/" class="h-full items-center flex"> <img src="{% static "images/logo.png" %}" alt="" class="max-h-[60%]"> </a>
+        <a href="/" class="h-full flex items-center"> <img src="{% static "images/logo.png" %}" alt="" class="max-h-[60%]"> </a>
         {% comment %} <a href="/" class="h-full text-center items-center flex"> Logo </a> {% endcomment %}
 
         {% endblock nav_logo %}
         <!-- Nav-links --> 
-        <ul class="nav-links flex justify-between gap-2 z-10">
-            {% comment %} {% if request.user.is_authenticated %} {% endcomment %}
-            <li><a href="https://www.mastergamingtechnology.com" class="nav-link"> MG Technology </a></li>
-            {% comment %} <li><a href="/classes/" class="nav-link"> Classes </a></li> {% endcomment %}
-            {% comment %} <li><a href="/courses/" class="nav-link"> Cours </a></li> {% endcomment %}
-            {% comment %} <li><a href="/mcqs/" class="nav-link"> QCM </a></li> {% endcomment %}
-            {% comment %} {% if request.user.is_superuser %} {% endcomment %}
-            {% comment %} <li> <a href="/admin/" class="nav-link" target="_blank"> Admin </a></li> {% endcomment %}
-            {% comment %} {% endif %} {% endcomment %}
-            
-            {% comment %} <li><a href="/accounts/logout/" class="nav-link"> Se déconnecter </a></li> {% endcomment %}
-            
-            {% comment %} {% endif %} {% endcomment %}
-
+        <ul id="nav-links" class="nav-links hidden sm:flex justify-between w-full sm:w-auto gap-2 z-10">
+            <li class="w-full"><a href="https://www.mastergamingtechnology.com"> MG Technology </a></li>
         </ul>
     </nav>
     
     <!-- Hamburger menu for smaller devices -->
-    <a href="#" class="hamburger">
+    <a href="#" class="hamburger flex sm:hidden">
         <span></span>
         <span></span>
         <span></span>
@@ -90,13 +78,15 @@
     
     // Responsive Navbar
     const hamburger = document.getElementsByClassName("hamburger")[0];
-    const navLinks = document.getElementsByClassName("nav-links");
+    // const navLinks = document.getElementsByClassName("nav-links");
+    const navLinks = document.getElementById("nav-links");
 
     hamburger.addEventListener('click', () => {
-        for (let i = 0; i < navLinks.length; i++) {
-            const element = navLinks[i];            
-            element.classList.toggle('active');
-        }
+        // for (let i = 0; i < navLinks.length; i++) {
+        //     const element = navLinks[i];
+        //     element.classList.toggle('active');
+        // }
+        navLinks.classList.toggle('active');
     });
 
     // Messages

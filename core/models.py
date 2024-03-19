@@ -39,4 +39,12 @@ class Contact(models.Model):
     contact_method = models.CharField(choices=CONTACT_METHOD_CHOICES, max_length=50)
     def __str__(self):
         return f"{self.full_name}"
+
     
+class Testimonial(models.Model):
+    title = models.CharField(max_length=50)
+    message = models.TextField()
+    full_name = models.CharField(max_length=50)
+
+    def __str__(self) -> str:
+        return self.full_name

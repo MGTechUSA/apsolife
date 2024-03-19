@@ -1,14 +1,16 @@
 from django.shortcuts import render
 from django.contrib import messages
 
-from .models import Service, Offer
+from .models import Service, Offer, Testimonial
 from .forms import ContactForm
 
 def home(request):
     service_list = Service.objects.all().order_by("rank")
     context = {
+        'testimonial_list': Testimonial.objects.all(),
         'service_list': service_list,
     }    
+
     return render(request, "home.html", context)
 
 
