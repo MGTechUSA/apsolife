@@ -20,6 +20,7 @@ def offer(request, service_id):
     offer_list = Offer.objects.filter(service=service)
     context = {
         'offer_list': offer_list,
+        'service': service,
     }
     return render(request, "offers.html", context)
 

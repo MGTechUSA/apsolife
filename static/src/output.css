@@ -645,6 +645,10 @@ input[type="number"]::-webkit-inner-spin-button,
   display: inline-block;
 }
 
+.inline {
+  display: inline;
+}
+
 .flex {
   display: flex;
 }
@@ -842,12 +846,20 @@ input[type="number"]::-webkit-inner-spin-button,
   border-width: 1px;
 }
 
+.border-2 {
+  border-width: 2px;
+}
+
 .border-b {
   border-bottom-width: 1px;
 }
 
 .border-l-2 {
   border-left-width: 2px;
+}
+
+.border-dashed {
+  border-style: dashed;
 }
 
 .border-brand {
@@ -878,6 +890,16 @@ input[type="number"]::-webkit-inner-spin-button,
 .border-slate-300 {
   --tw-border-opacity: 1;
   border-color: rgb(203 213 225 / var(--tw-border-opacity));
+}
+
+.border-slate-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(148 163 184 / var(--tw-border-opacity));
+}
+
+.border-slate-700 {
+  --tw-border-opacity: 1;
+  border-color: rgb(51 65 85 / var(--tw-border-opacity));
 }
 
 .border-l-blue-400 {
@@ -971,12 +993,32 @@ input[type="number"]::-webkit-inner-spin-button,
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-red-600 {
+  --tw-gradient-from: #dc2626 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(220 38 38 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-red-50 {
+  --tw-gradient-from: #fef2f2 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(254 242 242 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .to-brand {
   --tw-gradient-to: #D6BA49 var(--tw-gradient-to-position);
 }
 
 .to-brand-hv {
   --tw-gradient-to: #C5A82F var(--tw-gradient-to-position);
+}
+
+.to-red-600 {
+  --tw-gradient-to: #dc2626 var(--tw-gradient-to-position);
+}
+
+.to-red-400 {
+  --tw-gradient-to: #f87171 var(--tw-gradient-to-position);
 }
 
 .bg-clip-text {
@@ -1037,6 +1079,14 @@ input[type="number"]::-webkit-inner-spin-button,
   padding-top: 1rem;
 }
 
+.pb-0 {
+  padding-bottom: 0px;
+}
+
+.\!pb-0 {
+  padding-bottom: 0px !important;
+}
+
 .text-center {
   text-align: center;
 }
@@ -1073,6 +1123,11 @@ input[type="number"]::-webkit-inner-spin-button,
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
 }
 
 .font-bold {
