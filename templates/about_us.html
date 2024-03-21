@@ -1,0 +1,85 @@
+{% extends "_base.html" %}
+
+
+{% block head %} 
+    {% load static %}
+
+    <!-- Include Leaflet CSS and JavaScript -->
+    <link rel="stylesheet" href="{% static "leaflet/leaflet.css" %}" />
+    <script src="{% static "leaflet/leaflet.js" %}"></script>
+
+{% endblock head %}
+
+{% block title %}About Us{% endblock title %}
+
+{% block main %}
+
+    <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+    </style>
+    <div class="flex flex-col sm:flex-row">
+        <div class="mycontainer group !pt-8 w-full lg:w-[50%]">
+            <h1 class="fancy-headline !inline-block relative text-3xl mb-2 font-semibold text-slate-300" >About us</h1>
+            <p class="text-slate-300 pt-4">
+                Since 2005, our founder has provided the citizens of Texas with high-quality and
+                affordable technical services. Master Gaming Technology LLC is a locally owned
+                and operated business. We specialize in personalized technical support that provides
+                our partners with speed, efficiency and a simple user experience. From the single laptop or
+                Chromebook for home use to powerful performance desktops, our staff is ready to help with any
+                and all computer problems. Browse our online selection of services or contact us for help
+                selecting the service that best meets your needs.
+                <br> <br>
+                We include installation and configuration of your operating system, service for your
+                tablets and smartphones, VoIP system, assembly and construction of quality and performance
+                PCs, as well as those called Pc Gaming, detection of small home servers, prevention and
+                elimination of viruses / spyware and computer repair, application development, web pages,
+                online stores and social media management throughout Texas, USA.
+            </p>
+        </div>
+        {% comment %} <div class="mycontainer group !pt-8 w-full lg:w-[50%] border-l border-slate-700"> {% endcomment %}
+            {% comment %} <div id="map" class="rounded-lg h-96"></div> {% endcomment %}
+            
+        {% comment %} </div> {% endcomment %}
+    </div>
+    <!-- container flex flex-col gap-8 sm:flex-row flex-1 -->
+    <div class="mycontainer flex flex-col lg:flex-row gap-8 ">
+        <img src="{% static "images/our_mission.jpg" %}" alt="" class="w-full sm:w-2/5 rounded-xl">
+        <div class="group flex flex-col justify-center items-start w-full">
+            <h1 class="fancy-headline !inline-block relative text-3xl mb-2 font-semibold text-slate-300">Our Mission</h1>
+            <p class="text-slate-300 py-8">It is to be able to offer complete alternatives to our clients from a single place. Giving you the security of being able to find everything you need in Master Gaming Technology.</p>
+            
+            <div class="flex flex-col sm:flex-row gap-8 sm:gap-4 flex-1">
+                {% include "components/_feature_card.html" with headline="Service Pickup Free" para="We pick up and deliver your computer to your home or office." icon="fa-solid fa-truck-pickup"%}
+                {% include "components/_feature_card.html" with headline="Professional Approach" para="Guarantee a good, efficient, fast, safe and reliable service." icon="fa-solid fa-user-tie"%}
+                {% include "components/_feature_card.html" with headline="Wow Service" para="Our service guarantee ensures your computer is ready within 72 hours or sooner." icon="fa-solid fa-laptop"%}
+            </div>
+        </div>
+    </div>
+        
+        
+    <script>       
+        LatLng = [32.91315865863555, -97.24984141246158]
+
+        var map = L.map('map').setView([32.91315865863555, -97.24984141246158], 10);
+
+        var marker = L.marker(LatLng).addTo(map);
+        marker.bindPopup("Master Gaming Technology").openPopup();
+
+        map.fitBounds([marker.getLatLng()])
+        map.setView(map.getCenter(), 10);  // Center the map
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+    </script>
+
+
+{% endblock main %}
+
+{% block attribution %}
+<a href="https://www.freepik.com/free-photo/business-strategy-success-target-goals_1211528.htm#query=our%20mission%20business&position=3&from_view=search&track=ais">Image by ijeab</a> on Freepik
+{% endblock attribution %}

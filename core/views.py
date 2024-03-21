@@ -24,7 +24,7 @@ def offer(request, service_id):
     }
     return render(request, "offers.html", context)
 
-def contact(request, offer_id):
+def contact_offer(request, offer_id):
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -34,6 +34,25 @@ def contact(request, offer_id):
 
     offer = Offer.objects.get(id=offer_id)
     form = ContactForm(initial={'offer':offer})
+    context = {
+        'form': form,
+    }
+    return render(request, "contact_offer.html", context)
+
+
+def about_us(request):
+    return render(request, "about_us.html")
+
+def contact(request):
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+        messages.success(request, "Thank you for reaching out!")
+
+    form = ContactForm()
+
     context = {
         'form': form,
     }

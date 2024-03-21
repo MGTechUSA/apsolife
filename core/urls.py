@@ -7,8 +7,14 @@ from . import views
 urlpatterns = [
     path('', views.home, name="home"),
     path('offer/<str:service_id>/', views.offer, name="offer"),
-    path('contact/<str:offer_id>', views.contact, name="contact"),
+    path('contact_offer/<str:offer_id>', views.contact_offer, name="contact_offer"),
 
+    # About us URL
+    path('about_us/', views.about_us, name="about_us"),
+
+    # Contact URL
+    path('contact/', views.contact, name="contact"),
+    
     # # List Services URL
     # path('list_services/<str:category>/', views.list_services, name="list_services"),
 

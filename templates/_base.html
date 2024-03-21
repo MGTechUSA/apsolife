@@ -33,7 +33,10 @@
         {% endblock nav_logo %}
         <!-- Nav-links --> 
         <ul id="nav-links" class="nav-links hidden sm:flex justify-between w-full sm:w-auto gap-2 z-10">
-            <li class="w-full"><a href="https://www.mastergamingtechnology.com"> MG Technology </a></li>
+            <li class=""><a href="https://www.mastergamingtechnology.com"> MG Technology </a></li>
+            <li class><a href="/about_us/">About Us</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li> <a href="/admin/core/contact/" class="login-btn" target="_blank"> Admin </a> </li>
         </ul>
     </nav>
     
@@ -70,6 +73,10 @@
     </ul>
     {% endif %}
 
+    <footer class="flex flex-col items-center border-t border-slate-700 text-slate-700 px-4 py-4">
+        <p class="text-slate-400 text-center"> Copyright {% now "Y" %} © Apsolife LLC. <br> All Right Reserved.</p>
+    </footer>
+    
 </body>
 
 

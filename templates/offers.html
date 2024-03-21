@@ -30,7 +30,7 @@ body{
        <h1 class="text-3xl font-semibold mt-4">
             ${{offer.price}} <span class="text-gray-400 text-base"> / MONTH </span>
         </h1>
-       <a href="{% url "contact" offer_id=offer.id%}" class="btn-primary text-center">Contact</a>
+       <a href="{% url "contact_offer" offer_id=offer.id%}" class="btn-primary text-center">Contact</a>
     </div>
     {% endfor %} 
 

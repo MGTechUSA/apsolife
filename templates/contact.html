@@ -3,15 +3,18 @@
 
 {% block head %} 
     {% load static %}
-    <title>Contact</title>
+
 {% endblock head %}
+
+{% block title %}Contact{% endblock title %}
+
 
 {% block main %}
 <style>
-body{
-    background-color: black;
-    color: white;
-}
+    body{
+        background-color: black;
+        color: white;
+    }
 </style>
 {% include "components/_contact_form.html" %}
 
