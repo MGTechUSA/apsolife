@@ -5,7 +5,7 @@ class Service(models.Model):
     name = models.CharField(max_length=50)
     # image = models.ImageField(upload_to="images/")
     image = CloudinaryField('apsolife_images/')
-    description = models.TextField()
+    # description = models.TextField()
     rank = models.IntegerField()
     
     def __str__(self) -> str:
