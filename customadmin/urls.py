@@ -14,7 +14,7 @@ urlpatterns = [
     #  - Create table (Create)
     path('create_row/<str:model_name>', views.create_row_page, name="create_row"),
     #  - Show table URL (Read)
-    path('table/<str:model_name>', views.show_table_page, name="tables"),
+    path('table/<str:model_name>/', views.show_table_page, name="tables"),
     #  - Edit table URL (Update, Delete)
     path('edit_row/<str:model_name>/<str:id>', views.edit_row_page, name="edit_row"),
     #   - Show history
