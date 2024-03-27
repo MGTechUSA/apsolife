@@ -3,7 +3,7 @@ from .admin import models
 # from accounts.models import UserAccount
 from django.forms import ModelForm
 from django.contrib import messages
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import user_passes_test, login_required
 from django.http import JsonResponse
 
 # from .models import GeneralData
@@ -42,6 +42,7 @@ def is_admin(user):
 
 # VIEW FUNCTIONS
 # Dashboard Page
+@login_required(login_url="/djadmin/login/")
 @user_passes_test(is_admin)
 def dashboard_page(request):
     # customers = UserAccount.objects.filter()
