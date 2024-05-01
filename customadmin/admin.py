@@ -25,7 +25,7 @@ models = [
     Table(
         name="Contact",
         model=Contact,
-        # fields=["name", "subject", "level"],
+        fields=["full_name", "email", "phone"],
         # order_by=["level", "subject"]
     ),
     Table(

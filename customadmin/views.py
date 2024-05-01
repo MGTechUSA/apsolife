@@ -42,7 +42,7 @@ def is_admin(user):
 
 # VIEW FUNCTIONS
 # Dashboard Page
-@login_required(login_url="/djadmin/login/")
+@login_required(login_url="/accounts/login/")
 @user_passes_test(is_admin)
 def dashboard_page(request):
     # customers = UserAccount.objects.filter()
@@ -55,6 +55,7 @@ def dashboard_page(request):
     # return render(request, "customadmin/dashboard.html", context)
 
 # Settings Page.
+@login_required(login_url="/accounts/login/")
 @user_passes_test(is_admin)
 def settings_page(request):
     # general_data = GeneralData.get_or_create()
@@ -67,6 +68,7 @@ def settings_page(request):
 
 # TABLES (CRUD) ->
 #  - (Create)
+@login_required(login_url="/accounts/login/")
 @user_passes_test(is_admin)
 def create_row_page(request, model_name):
     TableClass = get_model(model_name)
@@ -185,6 +187,7 @@ def edit_row_page(request, model_name, id):
 
 
 #  - (Read)
+@login_required(login_url="/accounts/login/")
 @user_passes_test(is_admin)
 def show_table_page(request, model_name):
     # Loading registered values from the admin.py
@@ -233,16 +236,3 @@ def get_chapters(request):
     data = [{'id': chapter.id, 'name': chapter.name} for chapter in chapters]
     return JsonResponse(data, safe=False)
 
-
-@user_passes_test(is_admin)
-def history_page(request, user_id):
-    user = UserAccount.objects.get(id=user_id)
-    
-    history = user.history.order_by("-id")
-    context = {
-        'history': history,
-        'tables': models,
-    }
-
-    return render(request, "customadmin/history.html", context)
-    
