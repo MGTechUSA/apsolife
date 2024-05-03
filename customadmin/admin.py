@@ -20,7 +20,7 @@ models = [
     Table(
         name="Offer",
         model=Offer, 
-        # fields = ["name"]
+        fields = ["service", "name", "price"]
     ),
     Table(
         name="Contact",
