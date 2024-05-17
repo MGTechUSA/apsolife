@@ -1,0 +1,90 @@
+{% extends "_base.html" %}
+
+{% load static %}
+
+{% block head %}
+
+{% endblock head %}
+
+{% block title %}{{service.name}}{% endblock title %}
+
+{% block main %}
+  
+<div class="flex flex-col justify-between items-start gap-8 sm:flex-row overflow-hidden px-8 lg:px-16 py-8 lg:py-16">
+    <div class="info group/container flex flex-col justify-center items-start">
+
+            <!-- Service Name-->
+            <h1 class="fancy-headline !inline-block relative text-5xl mb-2 font-semibold">
+            {{service.name}}
+            </h1>
+
+            <!-- Discription -->
+            <p class=" pt-4">
+                {{service.description|safe}}
+            </p>
+            <!-- Contact Button-->
+            {% if service.category == "IT_SERVICES_FOR_BUSINESS" %}
+            <a href="{% url "contact_specific_service" service_id=service.id%}" class="btn-primary mt-6">Contact</a>
+            {% else %}
+            <button class="btn-primary mt-6" data-token="7bdf3a7ca87d4bbd92aabf462d993238" data-orgname="Master-Gaming-Technology-LLC" class="hcp-button" onClick="HCPWidget.openModal()">
+              Book online
+            </button>
+            {% endif %}
+    </div>
+    {% if service.image %}
+      <img src="{{ service.image.url }}" alt="image" class="w-full sm:w-2/4 !aspect-[3/2] rounded-xl border border-slate-700">
+    {% else %}
+      <img src="{% static "images/default-image.jpg" %}" alt="image" class="w-full sm:w-2/4 !aspect-[3/4] rounded-xl">
+    {% endif %}
+
+    {% comment %} <img src="{{ service.image.url }}" alt="{% static "images/default-image.jpg" %}" class="w-full sm:w-2/4 rounded-xl"/> {% endcomment %}
+  </div>
+
+
+<!-- Bullet Points -->
+<div class="group px-8 lg:px-16 py-8 lg:py-16 border-t border-b border-slate-700 bg-slate-900">
+  <h1 class="fancy-headline !inline-block relative text-3xl mb-2 font-semibold text-slate-100">With {{service.name}} from MG Technology You will get:</h1>
+  <ul class="flex flex-wrap text-slate-200 pt-4 w-full gap-5">
+    {% for point in service.get_bullet_points %}
+        <li class="inline-block w-full sm:w-[49%] sm:max-w-[49%]" ><i class="fa-solid fa-check text-brand mr-2"></i>{{point}}</li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+<!-- Contact -->
+<div class="group flex flex-col items-center mycontainer ">
+  <!-- Service Name-->
+  <div class="flex justify-center">
+    <h1 class="text-center text-2xl font-semibold text-slate-300">
+      Feel free to reach out for assistance!
+    </h1> 
+  </div>
+
+  <p class="text-slate-300 text-center pt-4">
+    Our experts are prepared to resolve your issues.
+  </p>
+  <!-- Contact Button-->
+  {% if service.category == "IT_SERVICES_FOR_BUSINESS" %}
+    <a href="{% url "contact_specific_service" service_id=service.id%}" class="btn-primary mt-6">Contact</a>
+  {% else %}
+    <button class="btn-primary mt-6" data-token="7bdf3a7ca87d4bbd92aabf462d993238" data-orgname="Master-Gaming-Technology-LLC" class="hcp-button" onClick="HCPWidget.openModal()">
+      Book online
+    </button>
+  {% endif %}
+
+</div> <!-- Contact -->
+
+{% block attribution %}
+  {{service.attribution}}
+{% endblock attribution %}
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+
+<!--End of Housecallpro Online booking button-->
+<script async src="https://online-booking.housecallpro.com/script.js?token=7bdf3a7ca87d4bbd92aabf462d993238&orgName=Master-Gaming-Technology-LLC"></script>
+{% endblock main %}

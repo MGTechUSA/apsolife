@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from .models import Service, Offer, Contact, Testimonial
+from .models import Service, Category, Contact, Testimonial
 
 admin.site.register(Service)
-admin.site.register(Offer)
+admin.site.register(Category)
 admin.site.register(Contact)
 admin.site.register(Testimonial)

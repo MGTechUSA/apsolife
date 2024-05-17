@@ -6,8 +6,11 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name="home"),
-    path('offer/<str:service_id>/', views.offer, name="offer"),
-    path('contact_offer/<str:offer_id>', views.contact_offer, name="contact_offer"),
+    path('list_services/<str:category_id>/', views.list_services, name="list_services"),
+    path('contact_service/<str:service_id>', views.contact_service, name="contact_service"),
+
+    # Services URL
+    path('services/<str:service_id>/', views.services, name="services"),
 
     # About us URL
     path('about_us/', views.about_us, name="about_us"),

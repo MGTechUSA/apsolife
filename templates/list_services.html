@@ -1,0 +1,38 @@
+{% extends "_base.html" %}
+
+{% comment %} {% load custom_filters %} {% endcomment %}
+
+{% block head %}
+    {% load static %}
+
+{% endblock head %}
+
+
+{% block main %}
+
+<div class="mycontainer !pb-0">
+    <h1 class=" text-4xl leading-normal inline bg-gradient-to-r from-brand-light to-brand-hv bg-clip-text font-display tracking-tight text-transparent">{{category.name}}</h1>
+</div>
+
+<div class="mycontainer flex flex-col lg:flex-row flex-wrap gap-8 max-w-[1700px] m-auto">
+    {% for service in service_list %}
+    <a href="{% url "services" service_id=service.id %}" class="group flex flex-col w-full lg:w-[30%] gap-5 p-4 rounded-xl border border-gray-700 hover:bg-brand/40 hover:shadow-xl duration-500">
+        <div class="flex w-full !aspect-[4/3] rounded-xl overflow-hidden">
+            <img src="{{service.image.url}}" alt="img" class="flex w-full h-auto flex-shrink-0">
+        </div>
+        <span class="text-2xl text-brand font-medium group-hover:text-white">{{service.name}}</span>
+        <span href="" class=" group-hover:text-white">Learn more <i class="ml-0 text-brand group-hover:ml-2 group-hover:text-white fa-solid fa-arrow-right duration-500"></i></span>
+    </a>
+    {% comment %} <div class="flex flex-col justify-between w-full lg:w-[30%] p-8 border-2 border-slate-700 border-dashed  order-gray-600 rounded-lg gap-4">
+       <h1 class="text-2xl">{{service.name}}</h1>
+       <p class="text-gray-400">{{service.description|safe}}</p>
+       <h1 class="text-3xl font-semibold mt-4">
+            ${{service.price}} <span class="text-gray-400 text-base"> / MONTH </span>
+        </h1>
+       <a href="{% url "contact_service" service_id=service.id%}" class="btn-primary text-center">Contact</a>
+    </div> {% endcomment %}
+    {% endfor %} 
+
+</div>
+
+{% endblock main %}

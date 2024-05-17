@@ -2,7 +2,8 @@ from django.contrib import admin
 
 
 # Custom Admin Registration.
-from core.models import Service, Offer, Contact, Testimonial
+# from core.models import Service, Category, Contact, Testimonial
+from core.models import Service, Category, Contact, Testimonial
 
 class Table:
     def __init__(self, name, model, fields=None, order_by=None) -> None:
@@ -15,12 +16,16 @@ models = [
     Table(
         name="Service",
         model=Service,
-        order_by = ["rank"],
+        order_by = ["name"],
+        fields = ["category", "name", "price"]
+
     ),
     Table(
-        name="Offer",
-        model=Offer, 
-        fields = ["service", "name", "price"]
+        name="Category",
+        model=Category, 
+        order_by = ["name"],
+        # fields = ["service", "name", "price"]
+
     ),
     Table(
         name="Contact",

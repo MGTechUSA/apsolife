@@ -1,30 +1,33 @@
 from django.shortcuts import render
 from django.contrib import messages
 
-from .models import Service, Offer, Testimonial
+from .models import Service, Category, Testimonial
 from .forms import ContactForm
 
 def home(request):
-    service_list = Service.objects.all().order_by("rank")
+    category_list = Category.objects.all().order_by("rank")
     context = {
         'testimonial_list': Testimonial.objects.all(),
-        'service_list': service_list,
-    }    
+        'category_list': category_list,
+    }
 
     return render(request, "home.html", context)
 
 
-def offer(request, service_id):
+def list_services(request, category_id):
     
-    service = Service.objects.get(id=service_id)
-    offer_list = Offer.objects.filter(service=service)
+    category = Category.objects.get(id=category_id)
+    service_list = Service.objects.filter(category=category)
     context = {
-        'offer_list': offer_list,
-        'service': service,
+        'service_list': service_list,
+        'category': category,
     }
-    return render(request, "offers.html", context)
+    return render(request, "list_services.html", context)
 
-def contact_offer(request, offer_id):
+
+def services(request, service_id):
+    service = Service.objects.get(id=service_id)
+
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -32,8 +35,23 @@ def contact_offer(request, offer_id):
 
         messages.success(request, "Thank you for reaching out!")
 
-    offer = Offer.objects.get(id=offer_id)
-    form = ContactForm(initial={'offer':offer})
+    context = {
+        'service': service,
+        'category_img': f"images/services/{service.name[0]}.jpg"
+    }
+    return render(request, f"service.html", context)
+
+
+def contact_service(request, service_id):
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+        messages.success(request, "Thank you for reaching out!")
+
+    service = Service.objects.get(id=service_id)
+    form = ContactForm(initial={'service':service})
     context = {
         'form': form,
     }
