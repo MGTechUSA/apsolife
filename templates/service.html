@@ -19,9 +19,12 @@
             </h1>
 
             <!-- Discription -->
-            <p class=" pt-4">
+            <p class="pt-4">
                 {{service.description|safe}}
             </p>
+            <h1 class="text-2xl font-semibold pt-4">
+              ${{service.price}} <span class="text-gray-400 text-base"> / MONTH </span>
+            </h1>
             <!-- Contact Button-->
             {% if service.category == "IT_SERVICES_FOR_BUSINESS" %}
             <a href="{% url "contact_specific_service" service_id=service.id%}" class="btn-primary mt-6">Contact</a>

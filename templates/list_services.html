@@ -20,8 +20,13 @@
         <div class="flex w-full !aspect-[4/3] rounded-xl overflow-hidden">
             <img src="{{service.image.url}}" alt="img" class="flex w-full h-auto flex-shrink-0">
         </div>
-        <span class="text-2xl text-brand font-medium group-hover:text-white">{{service.name}}</span>
-        <span href="" class=" group-hover:text-white">Learn more <i class="ml-0 text-brand group-hover:ml-2 group-hover:text-white fa-solid fa-arrow-right duration-500"></i></span>
+        <div class="flex flex-col flex-1 justify-end gap-4">
+            <span class="text-2xl text-brand font-medium group-hover:text-white">{{service.name}}</span>
+            <h1 class="text-2xl font-semibold">
+                ${{service.price}} <span class="text-gray-400 text-base"> / MONTH </span>
+            </h1>
+            <span href="" class=" group-hover:text-white">Learn more <i class="ml-0 text-brand group-hover:ml-2 group-hover:text-white fa-solid fa-arrow-right duration-500"></i></span>
+        </div>
     </a>
     {% comment %} <div class="flex flex-col justify-between w-full lg:w-[30%] p-8 border-2 border-slate-700 border-dashed  order-gray-600 rounded-lg gap-4">
        <h1 class="text-2xl">{{service.name}}</h1>
